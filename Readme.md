@@ -56,6 +56,27 @@ $git pull
 >
 >.gitignore 에 a.out, *.o, *.txt 등 을 추가하여 불필요한 형식은 걸러서 올리는것이 작업하기 편합니다.
 
+```shell
+기존 로컬 저장소와 원격 저장소 연결
+1.원격 저장소를 먼저 만들고 그냥 Clon
+$git clone https://원격저장소.git
+
+2.기존로컬 저장소를 원격저장소와 연결
+Github에서 resipotory를 먼저 만들어야 한다.
+$mkdir "resipotory와 같은 이름"
+//resipotory 이름은 foo라고 가정한다.
+$cd foo
+$git init
+//빈저장소를 만드는것
+$git remote <name> <https://원격저장소.git>
+//name 간단하게 push할때마다 사용하는 브랜치 이름이다.
+$git remote show <name>
+//분명 HEAD 브랜치 : (unknown) 이라고 나올것이다. 
+$git push <name> master
+```
+
+
+
 
 
 Autojump 설치
