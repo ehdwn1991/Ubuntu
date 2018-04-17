@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: ../사진
+---
+
 우분투 설정
 ===
 
@@ -32,10 +36,8 @@ $sudo apt install git
 $git config --global user.name "kimleepark"
 $git config --global user.email kimleepark@gmail
 //$git config -l
-![깃 글로벌 편집](/home/codex/Codex/Photo/깃 글로벌 편집.png)
 
-$ssh-keygen
-![keygen](/home/codex/Codex/Photo/keygen.png)
+$ssh-keygen 
 //.ssh 폴더안에 id_rsa.pub 의 내용을 Github ssh에 등록해준다.
 $git init
 $git log
@@ -55,6 +57,31 @@ $git pull
 >[Git 시작하기][https://git-scm.com/book/ko/v1/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-Git-%EC%B5%9C%EC%B4%88-%EC%84%A4%EC%A0%95] 를 참고 하시면서 작업 하시면 좋습니다.
 >
 >.gitignore 에 a.out, *.o, *.txt 등 을 추가하여 불필요한 형식은 걸러서 올리는것이 작업하기 편합니다.
+
+>push 할때마다 아이디와 비밀번호 요구
+>
+>일단 이유를 알아야 하니 [여기][https://help.github.com/articles/why-is-git-always-asking-for-my-password/]참고해 주세요.
+>[ssh key 생성부터 설정][https://help.github.com/articles/connecting-to-github-with-ssh/]
+>
+>```shell
+>$ls -al ~/.ssh
+>//기존에 키가 존재 하는지 체크해 주세요. 아마 대부분 이미 ssh-keygen으로 만드셨을겁니다.
+>$ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+>//이후 나오는 설정 "아~ 잘모르궤쎠 엔터 누르롸눈거 가튠뒈 잘 모르게쒀 걍 무조건 엔터"
+>//뭐 순서대로 저장할 폴더, 패러프레이즈 에 대한 방식이니 그냥 엔터 눌러주세요.
+>$cat ~/.ssh/id_rsa.pub
+>//전부 복사해서 github sshkey 에 등록해주세요
+>//등록후 조금 시간이 지나야 인증이 되니까 그동안 reboot해주세요
+>$ssh -T git@github.com
+>![ssh 확인1](/home/codex/사진/ssh 확인1.png)
+>//Hi~~어쩌구 나오면 ssh에 등록되고 연결이 된거에요.
+>
+>그리고 대부분 아마 push할때 마다 id 와 pass를 물어보는 경우는 git clone시에 ssh가 아닌 http로 clone을 해서 그렇습니다.
+>그냥 간단하게 원래있던 폴더 삭제후
+>clone할때에 ssh로 clone하시면 id&pass 안물어봄.
+>
+>
+>```
 
 ```shell
 기존 로컬 저장소와 원격 저장소 연결
@@ -88,7 +115,6 @@ $sudo apt-get install autojump
 $sudo apt-get update
 $autojump
 //분명 이부분에서 osX든 ubuntu든 bach 설정이 안되어 있어서 뭐라뭐라 나옴
-![오토점프1](/home/codex/Codex/Photo/오토점프1.png)
 $echo ". /usr/share/autojump/autojump.bash" >> ~/.bashrc
 //autojump가 터미널 실행시 바로 작동 할수 있게 경로를 추가해 줘야 한다.
 ```
@@ -136,7 +162,6 @@ $echo $DIPLAY
 	현재 내 display에 대한 정보와 권한을 가져오는것이 방법이였다. 근데 중요한건 결국 안됨....rc.local의 실행과정을 보니 parent에서 fork하는것이였고 현재 쉘에는 적용 안됨...
 
 3.autostart에 스크립트 등록 [적용안됨]
-
 
 4.autostart에 mate-mouse-property [적용됨]
 	근데 부팅되자마자 앱 화면이 로드됨
