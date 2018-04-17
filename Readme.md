@@ -2,11 +2,11 @@
 ===
 <!--ts-->
 
-* [Git](#GIT Installation and Setting)
-* [vim](#vim Installation and Setting)
+* [Git](#GIT-Installation-and-Setting)
+* [vim](#vim-Installation-and-Setting)
 * [Ubuntu]
   * [root계정](#root)
-  * [mouse accelerator turn off](#Mouse setting)
+  * [mouse accelerator turn off](#Mouse-setting)
 
 <!--te-->
 
