@@ -70,16 +70,13 @@ $git pull
 >//전부 복사해서 github sshkey 에 등록해주세요
 >//등록후 조금 시간이 지나야 인증이 되니까 그동안 reboot해주세요
 >$ssh -T git@github.com
->![ssh 인증](./img/ssh/ssh_check.png)
 >//Hi~~어쩌구 나오면 ssh에 등록되고 연결이 된거에요.
->
+>```
+>![ssh 인증](./img/ssh/ssh_check.png)
 >그리고 대부분 아마 push할때 마다 id 와 pass를 물어보는 경우는 git clone시에 ssh가 아닌 http로 clone을 해서 그렇습니다.
 >그냥 간단하게 원래있던 폴더 삭제후
 >clone할때에 ssh로 clone하시면 id&pass 안물어봄.
->
->
->```
->
+
 
 ```shell
 기존 로컬 저장소와 원격 저장소 연결
