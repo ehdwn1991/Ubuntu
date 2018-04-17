@@ -2,11 +2,11 @@
 ===
 <!--ts-->
 
-* [Git](#GIT설치및 설정)
-* [vim](#vim 설치및 설정)
+* [Git](#GIT Installation and Setting)
+* [vim](#vim Installation and Setting)
 * [Ubuntu]
   * [root계정](#root)
-  * [mouse accelerator turn off](#마우스 설정 문제)
+  * [mouse accelerator turn off](#Mouse setting)
 
 <!--te-->
 
@@ -19,7 +19,7 @@ $sudo passwd root
 
 
 
-Fire Fox 업데이트
+Fire Fox Update
 ---
 
 ```shell
@@ -29,7 +29,7 @@ $sudo apt-get update
 
 
 
-GIT설치및 설정
+GIT Installation and Setting
 ---
 
 ```shell
@@ -108,7 +108,7 @@ $git push <name> master
 
 
 
-Autojump 설치
+Autojump Installation
 ---
 
 ```shell
@@ -130,7 +130,7 @@ $echo ". /usr/share/autojump/autojump.bash" >> ~/.bashrc
 
 
 
-vim 설치및 설정
+vim Installation and Setting
 ---
 
 ```shell
@@ -143,7 +143,7 @@ $sudo apt-get update
 
 
 
-마우스 설정 문제
+Mouse setting
 ---
 ```shell
 시스템 설정 -> 마우스 설정 에 마우스 속도 조절이 없다....
