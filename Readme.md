@@ -111,3 +111,36 @@ $sudo apt-get vim
 $sudo apt-get update
 ```
 
+
+
+
+
+마우스 설정 문제
+---
+```shell
+시스템 설정 -> 마우스 설정 에 마우스 속도 조절이 없다....
+1. rc.local에 스크립트 파일 등록 [적용안됨]
+	
+2. init.d에 스크립트 파일 등록 [적용안됨]
+	Runlevel=5	
+
+#1~2번 까지 systemctl 로 상태를 확인해본 결과 똑같은 오류 메세지 나옴
+unable to open display "" 이런식임
+방법을 찾다가 display가 뜻하는것은 서버등 내 서버에 접속된 사용자들의 display 같음 하지만 난 솔플을 하는중이니
+$echo $DIPLAY
+:0
+일케 나옴 그러니당연히 매번 unable~ 이런식으로 오류를 던져줌
+[해결]
+	export XAUTHORITY=/home/codex/.Xauthority
+	sh & xset -display :0 m 1/2 1/2
+	현재 내 display에 대한 정보와 권한을 가져오는것이 방법이였다. 근데 중요한건 결국 안됨....rc.local의 실행과정을 보니 parent에서 fork하는것이였고 현재 쉘에는 적용 안됨...
+
+3.autostart에 스크립트 등록 [적용안됨]
+
+
+4.autostart에 mate-mouse-property [적용됨]
+	근데 부팅되자마자 앱 화면이 로드됨
+5. 런치패드 업데이트 [안됨]
+6. 우분투 업데이트 [안됨]
+7. Gnome으로 변경후 업데이트 [됨]
+```
