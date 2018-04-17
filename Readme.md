@@ -79,7 +79,7 @@ $git pull
 >
 >
 >```
->![ssh 확인1](/home/codex/Ubuntu/ssh 확인1.png)
+>![ssh 인증](./img/ssh/ssh_check.png)
 
 ```shell
 기존 로컬 저장소와 원격 저장소 연결
