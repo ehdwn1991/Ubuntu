@@ -117,7 +117,7 @@ $echo ". /usr/share/autojump/autojump.bash" >> ~/.bashrc
 //autojump가 터미널 실행시 바로 작동 할수 있게 경로를 추가해 줘야 한다.
 ```
 
->[Autojump][https://github.com/wting/autojump]를 참고하시길 바랍니다.
+[Autojump][https://github.com/wting/autojump] 를 참고하시길 바랍니다.
 
 
 
