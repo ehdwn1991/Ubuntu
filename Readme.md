@@ -131,7 +131,7 @@ vim 설치및 설정
 $sudo apt-get vim
 $sudo apt-get update
 ```
-
+>후...여러가지 준비해봤습니다. 제대로 모시겠습니다.[Vim 설정](./vim/Mac_vim_setting)
 
 
 
@@ -154,7 +154,8 @@ $echo $DIPLAY
 [해결]
 	export XAUTHORITY=/home/codex/.Xauthority
 	sh & xset -display :0 m 1/2 1/2
-	현재 내 display에 대한 정보와 권한을 가져오는것이 방법이였다. 근데 중요한건 결국 안됨....rc.local의 실행과정을 보니 parent에서 fork하는것이였고 현재 쉘에는 적용 안됨...
+	현재 내 display에 대한 정보와 권한을 가져오는것이 방법이였다.
+	근데 중요한건 결국 안됨....rc.local의 실행과정을 보니 parent에서 fork하는것이였고 현재 쉘에는 적용 안됨...
 
 3.autostart에 스크립트 등록 [적용안됨]
 
