@@ -1,11 +1,11 @@
 우분투 설정
 ===
 
-* [Git](#GIT-Installation-and-Setting)
-* [vim](#vim-Installation-and-Setting)
+* [Git](#git-installation-and-setting)
+* [vim](#vim-installation-and-setting)
 * [Ubuntu]
   * [root계정](#root)
-  * [mouse accelerator turn off](#Mouse-setting)
+  * [mouse accelerator turn off](#mouse-setting)
 
 
 root
