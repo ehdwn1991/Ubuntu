@@ -51,14 +51,14 @@ $git pull
 
 ```
 
->[Git 시작하기][https://git-scm.com/book/ko/v1/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-Git-%EC%B5%9C%EC%B4%88-%EC%84%A4%EC%A0%95] 를 참고 하시면서 작업 하시면 좋습니다.
+>[Git 시작하기](https://git-scm.com/book/ko/v1/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-Git-%EC%B5%9C%EC%B4%88-%EC%84%A4%EC%A0%95) 를 참고 하시면서 작업 하시면 좋습니다.
 >
 >.gitignore 에 a.out, *.o, *.txt 등 을 추가하여 불필요한 형식은 걸러서 올리는것이 작업하기 편합니다.
 
 >push 할때마다 아이디와 비밀번호 요구
 >
->일단 이유를 알아야 하니 [여기][https://help.github.com/articles/why-is-git-always-asking-for-my-password/]참고해 주세요.
->[ssh key 생성부터 설정][https://help.github.com/articles/connecting-to-github-with-ssh/]
+>일단 이유를 알아야 하니 [여기](https://help.github.com/articles/why-is-git-always-asking-for-my-password/)참고해 주세요.
+>[ssh key 생성부터 설정](https://help.github.com/articles/connecting-to-github-with-ssh/)
 >
 >```shell
 >$ls -al ~/.ssh
@@ -70,7 +70,7 @@ $git pull
 >//전부 복사해서 github sshkey 에 등록해주세요
 >//등록후 조금 시간이 지나야 인증이 되니까 그동안 reboot해주세요
 >$ssh -T git@github.com
->
+>![ssh 인증](./img/ssh/ssh_check.png)
 >//Hi~~어쩌구 나오면 ssh에 등록되고 연결이 된거에요.
 >
 >그리고 대부분 아마 push할때 마다 id 와 pass를 물어보는 경우는 git clone시에 ssh가 아닌 http로 clone을 해서 그렇습니다.
@@ -79,7 +79,7 @@ $git pull
 >
 >
 >```
->![ssh 인증](./img/ssh/ssh_check.png)
+>
 
 ```shell
 기존 로컬 저장소와 원격 저장소 연결
@@ -117,7 +117,7 @@ $echo ". /usr/share/autojump/autojump.bash" >> ~/.bashrc
 //autojump가 터미널 실행시 바로 작동 할수 있게 경로를 추가해 줘야 한다.
 ```
 
-[Autojump][https://github.com/wting/autojump] 를 참고하시길 바랍니다.
+>[Autojump](https://github.com/wting/autojump) 를 참고하시길 바랍니다.
 
 
 
