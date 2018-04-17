@@ -1,9 +1,6 @@
----
-typora-copy-images-to: ../사진
----
-
 우분투 설정
 ===
+
 
 
 root 계정 설정
@@ -73,7 +70,7 @@ $git pull
 >//전부 복사해서 github sshkey 에 등록해주세요
 >//등록후 조금 시간이 지나야 인증이 되니까 그동안 reboot해주세요
 >$ssh -T git@github.com
->![ssh 확인1](/home/codex/사진/ssh 확인1.png)
+>
 >//Hi~~어쩌구 나오면 ssh에 등록되고 연결이 된거에요.
 >
 >그리고 대부분 아마 push할때 마다 id 와 pass를 물어보는 경우는 git clone시에 ssh가 아닌 http로 clone을 해서 그렇습니다.
@@ -82,6 +79,7 @@ $git pull
 >
 >
 >```
+>![ssh 확인1](/home/codex/Ubuntu/ssh 확인1.png)
 
 ```shell
 기존 로컬 저장소와 원격 저장소 연결
