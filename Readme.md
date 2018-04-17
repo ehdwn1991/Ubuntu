@@ -1,6 +1,5 @@
 우분투 설정
 ===
-<!--ts-->
 
 * [Git](#GIT-Installation-and-Setting)
 * [vim](#vim-Installation-and-Setting)
@@ -8,7 +7,6 @@
   * [root계정](#root)
   * [mouse accelerator turn off](#Mouse-setting)
 
-<!--te-->
 
 root
 ---
