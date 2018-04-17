@@ -5,12 +5,12 @@
 * [Git](#GIT설치및 설정)
 * [vim](#vim 설치및 설정)
 * [Ubuntu]
-  * [root계정](#root 계정 설정)
+  * [root계정](#root)
   * [mouse accelerator turn off](#마우스 설정 문제)
 
 <!--te-->
 
-root 계정 설정
+root
 ---
 
 ```
