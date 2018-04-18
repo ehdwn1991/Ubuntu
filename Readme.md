@@ -193,7 +193,9 @@ $ sudo apt-get install build-essential cmake
 $ sudo apt-get install python-dev python3-dev
 $ cd ~/.vim/bundle/YouCompleteMe
 $ ./install.py --clang-completer
-//youcompleteme 에서 특정 언어에 대한 자동완성을 지원하기 위해 각 언어의 지원을 받아야한다. 여기서 C 언어에 대해 지원하고 싶으면 ./install.py 할때 --clang-completer를 추가해 준다. 귀찬으면 그냥 -all
+//youcompleteme 에서 특정 언어에 대한 자동완성을 지원하기 위해 각 언어의 지원을 받아야한다.
+//여기서 C 언어에 대해 지원하고 싶으면 ./install.py 할때 --clang-completer를 추가해 준다.
+//귀찬으면 그냥 -all
 
 ```
 
