@@ -135,9 +135,138 @@ vim Installation and Setting
 설치
 $sudo apt-get vim
 $sudo apt-get update
+vim scheme
 ```
 >후...여러가지 준비해봤습니다. 제대로 모시겠습니다.[Vim 설정](./vim/Mac_vim_setting)
 
+###vim scheme
+
+> 여러가지 테마는 [http://vimcolors.com](http://vimcolors.com/)여기에 많습니다.
+>
+> 테마가 들어가야할 위치는
+>
+> /usr/share/vim/vimXX/colors
+>
+> 여기에 있습니다. vimXX는 Vim마다 버전이 다르기 때문에 본인에게 맞는 버전을 찾아 주면 될것 같네요.
+
+```c
+$sudo wget -O /usr/share/vim/vim74/colors/molokai.vim https://raw.github.com/tomasr/molokai/master/colors/molokai.vim
+//이런식으로 원하는 테마를 찾아서 바로 넣어주면 됩니다.
+설정은 
+$vi ~/.vimrc
+colorscheme molokai
+이렇게 넣어주면 되겠네요.
+```
+
+### vim Plugin Install
+
+> 우선은 번들을 설치해 볼까요? 자세한 사항은 [여기](https://github.com/VundleVim/Vundle.vim#inspiration--ideas)를 참고해 주세요
+
+```c
+$git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+$vi ~/.vimrc
+```
+
+```c
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+ 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+```
+
+###youcompleteme
+>자동 완성 플러그인 입니다. 자세한건 [여기](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)를 참고해 주세요
+
+```c
+$vi ~/.vimrc
+Plugin 'Valloric/YouCompleteMe'
+//위 내용 추가후 :PluginInstall
+
+
+$ sudo apt-get install build-essential cmake
+$ sudo apt-get install python-dev python3-dev
+$ cd ~/.vim/bundle/YouCompleteMe
+$ ./install.py --clang-completer
+//youcompleteme 에서 특정 언어에 대한 자동완성을 지원하기 위해 각 언어의 지원을 받아야한다. 여기서 C 언어에 대해 지원하고 싶으면 ./install.py 할때 --clang-completer를 추가해 준다. 귀찬으면 그냥 -all
+
+```
+
+> 간혹 문제가 생길수 있다. vim에서 ycm_extra_conf.py이게 없다고 에러를 토해낼때!!
+>
+> [여기](https://github.com/rdnetto/YCM-Generator)를 참고해도 되고
+>
+> 다음 처럼 해줘도 된다.
+>
+> let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' 추가
+>
+> cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm
+> vim .ycm_extra_conf.py
+> 여기서 compilation_database_folder = ''를 찾아 ''부분에
+> '~/.vim/' 로 고친다.
+
+> YCM Option
+>
+> .vimrc에 추가
+>
+> "" turn on completion in comments
+> let g:ycm_complete_in_comments=1
+> "" load ycm conf by default
+> let g:ycm_confirm_extra_conf=0
+> "" turn on tag completion
+> let g:ycm_collect_identifiers_from_tags_files=1
+> "" only show completion as a list instead of a sub-window
+> set completeopt-=preview
+> "" start completion from the first character
+> let g:ycm_min_num_of_chars_for_completion=1
+> "" don't cache completion items
+> let g:ycm_cache_omnifunc=0
+> "" complete syntax keywords
+> let g:ycm_seed_identifiers_with_syntax=1
+
+
+
+### Airline
+
+> 자세한건 [여기](https://github.com/vim-airline/vim-airline)를 참고해 주세요.
+>
+> 각종 정보들을 vim에 표시되게 합니다. 버퍼를 사용해 창을 나눌수도 있고 다른 플러그인에 같이 적용도 됩니다.(솔직히 그냥 간지)
+
+```bash
+$vi ~/.vimrc
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+:PluginInstall
+```
+
+> 테마 적용 [여기](https://github.com/vim-airline/vim-airline-themes)에서 원하는 테마를 찾고 밑에 처럼 적용해주면 됩니다.
+>
+> :AirlineTheme <theme>
+
+
+
+### ctag
+
+> 커널 프로그래밍 을 위해서 필수 절차이다.[여기](https://courses.cs.washington.edu/courses/cse451/10au/tutorials/tutorial_ctags.html)에 ctags에 대한 명령어등 튜토리얼이 있다.
+
+```bash
+$sudo apt-get install exuberant-ctags
+
+$vi ~/.vimrc
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+//vim-misc는 easytags설치후 에러를 토하면서 misc 설치하라 하면 추가해주면됨
+```
+
+>기본 사용법
+>
+>Ctrl + ] - 함수, 구조체가 정의되어있는 곳으로 이동.
+>
+>Ctrl + t - 이동하기 전 소스코드 위치로 옴.
 
 
 
