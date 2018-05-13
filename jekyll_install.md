@@ -45,8 +45,8 @@
   $ rvm use ruby_version
   ```
   >http://jekyllrb-ko.github.io/docs/installation/ 에서 루비 설치홈에 가보면 최신버전은
-  >`ruby 2.5.1`이다.
-  >개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에
+  >`ruby 2.5.1`이다.  
+  >개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에  
   >다시 최신버전으로 재설치를 했어야 했습니다. ㅠㅠ  
   >[osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생](#problem1)
   
