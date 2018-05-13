@@ -1,7 +1,11 @@
+0. 
+{:toc}
+
 ## Jekyll installation
+
 [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)
 
-
+참고해주세요.
 
 ##RVM & Ruby install 
 
@@ -112,7 +116,8 @@ command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 #####problem2
 >osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
-<우분투 환경 사진+루비 젬 환경사진>
+![[ruby]ubunturubyversion](assets/[ruby]ubunturubyversion.png)
+
 <맥 루비 젬 환경사진>
 
 > osx에서 개발할때와 우분투에서 개발할때 루비 버젼이 달라서 에러를 토해냄.
