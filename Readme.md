@@ -57,15 +57,13 @@ $git pull
 ```
 
 >[Git 시작하기](https://git-scm.com/book/ko/v1/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-Git-%EC%B5%9C%EC%B4%88-%EC%84%A4%EC%A0%95) 를 참고 하시면서 작업 하시면 좋습니다.
->
+
 >.gitignore 에 a.out, *.o, *.txt 등 을 추가하여 불필요한 형식은 걸러서 올리는것이 작업하기 편합니다.
 
 >push 할때마다 아이디와 비밀번호 요구
->
 >일단 이유를 알아야 하니 [여기](https://help.github.com/articles/why-is-git-always-asking-for-my-password/)참고해 주세요.
 >[ssh key 생성부터 설정](https://help.github.com/articles/connecting-to-github-with-ssh/)
->
->```shell
+```shell
 >$ls -al ~/.ssh
 >//기존에 키가 존재 하는지 체크해 주세요. 아마 대부분 이미 ssh-keygen으로 만드셨을겁니다.
 >$ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -76,7 +74,7 @@ $git pull
 >//등록후 조금 시간이 지나야 인증이 되니까 그동안 reboot해주세요
 >$ssh -T git@github.com
 >//Hi~~어쩌구 나오면 ssh에 등록되고 연결이 된거에요.
->```
+```
 >![ssh 인증](./img/ssh/ssh_check.png)
 >그리고 대부분 아마 push할때 마다 id 와 pass를 물어보는 경우는 git clone시에 ssh가 아닌 http로 clone을 해서 그렇습니다.
 >그냥 간단하게 원래있던 폴더 삭제후
@@ -142,11 +140,8 @@ vim scheme
 ###vim scheme
 
 > 여러가지 테마는 [http://vimcolors.com](http://vimcolors.com/)여기에 많습니다.
->
 > 테마가 들어가야할 위치는
->
 > /usr/share/vim/vimXX/colors
->
 > 여기에 있습니다. vimXX는 Vim마다 버전이 다르기 때문에 본인에게 맞는 버전을 찾아 주면 될것 같네요.
 
 ```c
@@ -200,22 +195,16 @@ $ ./install.py --clang-completer
 ```
 
 > 간혹 문제가 생길수 있다. vim에서 ycm_extra_conf.py이게 없다고 에러를 토해낼때!!
->
 > [여기](https://github.com/rdnetto/YCM-Generator)를 참고해도 되고
->
 > 다음 처럼 해줘도 된다.
->
 > let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' 추가
->
 > cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm
 > vim .ycm_extra_conf.py
 > 여기서 compilation_database_folder = ''를 찾아 ''부분에
 > '~/.vim/' 로 고친다.
 
 > YCM Option
->
 > .vimrc에 추가
->
 > "" turn on completion in comments
 > let g:ycm_complete_in_comments=1
 > "" load ycm conf by default
@@ -236,7 +225,6 @@ $ ./install.py --clang-completer
 ### Airline
 
 > 자세한건 [여기](https://github.com/vim-airline/vim-airline)를 참고해 주세요.
->
 > 각종 정보들을 vim에 표시되게 합니다. 버퍼를 사용해 창을 나눌수도 있고 다른 플러그인에 같이 적용도 됩니다.(솔직히 그냥 간지)
 
 ```bash
@@ -247,7 +235,6 @@ Plugin 'vim-airline/vim-airline-themes'
 ```
 
 > 테마 적용 [여기](https://github.com/vim-airline/vim-airline-themes)에서 원하는 테마를 찾고 밑에 처럼 적용해주면 됩니다.
->
 > :AirlineTheme <theme>
 
 
@@ -266,9 +253,7 @@ Plugin 'xolox/vim-misc'
 ```
 
 >기본 사용법
->
 >Ctrl + ] - 함수, 구조체가 정의되어있는 곳으로 이동.
->
 >Ctrl + t - 이동하기 전 소스코드 위치로 옴.
 
 
