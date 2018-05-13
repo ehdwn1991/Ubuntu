@@ -25,10 +25,30 @@
   $ rvm version
   rvm 1.29.3 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
   $ rvm list known
+  # MRI Rubies
+  [ruby-]1.8.6[-p420]
+  [ruby-]1.8.7[-head] # security released on head
+  [ruby-]1.9.1[-p431]
+  [ruby-]1.9.2[-p330]
+  [ruby-]1.9.3[-p551]
+  [ruby-]2.0.0[-p648]
+  [ruby-]2.1[.10]
+  [ruby-]2.2[.7]
+  [ruby-]2.3[.4]
+  [ruby-]2.4[.1]
+  ruby-head
+  ...
+  #여기서 주목해야 하는 부분은 시스템에서 제공하는 최신 루비 버전은 2.4.1이다
+  #밑의 방식으로 설치하면 2.4.1의 버전이 설치되버림.
   $ rvm install ruby_version
   $ rvm list
   $ rvm use ruby_version
   ```
+  >http://jekyllrb-ko.github.io/docs/installation/ 에서 루비 설치홈에 가보면 최신버전은
+  >`ruby 2.5.1`이다. 개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에  	 >다시 최신버전으로 재설치를 했어야 했습니다. ㅠㅠ
+  [다른 버전의 ruby때문에 발생한문제](#problem1)
+  
+  
   >절대 우분투 환경에서 apt-get으로 ruby를 설치하시면 안됩니다.
   >옛날버전의 루비여서 jekyll를 사용하려고 하면 환경설정부터 각종 오류를 토해냅니다.
   #####jekyll install
@@ -74,6 +94,10 @@
 
 
 * issue
+
+  #####problem1
+  #####apt-get 으로  ruby 설치 했을때 에러
+
   > apt-get으로 ruby를 설치했더니
   > jekyll new할때
   ```shell
@@ -84,8 +108,17 @@
   #/var/lib/gems/2.3.0/gems에 bundler가 존재
   command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
   ```
+  #####problem2
+  #####osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
+  <우분투 환경 사진+루비 젬 환경사진>
+  <맥 루비 젬 환경사진>
 
+  > osx에서 개발할때와 우분투에서 개발할때 루비 버젼이 달라서 에러를 토해냄.
+  > 맥은 기본적으로 루비가 설치되어 있고 brew를통해 최신 루비 설치가 가능함.
+  > 물론 rvm 으로 설치하는것이 이상적이지만 맥에서는 필요 없다고 판단이됨.
+  >
+  > 
 
 [맥 설치과정 자세(영어)](https://programminghistorian.org/lessons/building-static-sites-with-jekyll-github-pages)
 
