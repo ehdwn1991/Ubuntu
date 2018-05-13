@@ -1,7 +1,7 @@
 ## Jekyll install
 * Installation  
   [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)  
-  
+
 #####RVM & Ruby install  
   >만약 OSX사용자시면, ruby가 깔려있습니다. 혹 모르니 brew install ruby 해주세요.  
   ```shell
@@ -48,7 +48,7 @@
   >개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에  
   >다시 최신버전으로 재설치를 했어야 했습니다. ㅠㅠ  
   >[osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생](#####problem1)
-  
+
   >절대 우분투 환경에서 apt-get으로 ruby를 설치하시면 안됩니다.
   >옛날버전의 루비여서 jekyll를 사용하려고 하면 환경설정부터 각종 오류를 토해냅니다.
 
@@ -90,8 +90,7 @@
   >
   > https://username.github.io 이런식으로 나올것이다 여기에 들어가서
   >
-  > Welcome 뜨면 성공
-
+  > Welcome 뜨면 성공  
 
 
 * issue  
