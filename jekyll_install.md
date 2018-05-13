@@ -1,7 +1,7 @@
 ## Jekyll installation  
   [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)  
 
-#####RVM & Ruby install  
+###RVM & Ruby install  
 
   >만약 OSX사용자시면, ruby가 깔려있습니다. 혹 모르니 brew install ruby 해주세요.  
   ```shell
