@@ -45,8 +45,8 @@
   $ rvm use ruby_version
   ```
   >http://jekyllrb-ko.github.io/docs/installation/ 에서 루비 설치홈에 가보면 최신버전은
-  >`ruby 2.5.1`이다. 개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에  	 >다시 최신버전으로 재설치를 했어야 했습니다. ㅠㅠ
-  [다른 버전의 ruby때문에 발생한문제](#problem1)
+  >`ruby 2.5.1`이다.  개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에  다시 최신버전으로 재설치를 했어야 했습니다. ㅠㅠ  
+  >[osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생](#problem1)
   
   
   >절대 우분투 환경에서 apt-get으로 ruby를 설치하시면 안됩니다.
@@ -96,7 +96,7 @@
 * issue
 
   #####problem1
-  #####apt-get 으로  ruby 설치 했을때 에러
+  apt-get 으로  ruby 설치 했을때 에러
 
   > apt-get으로 ruby를 설치했더니
   > jekyll new할때
@@ -109,7 +109,7 @@
   command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
   ```
   #####problem2
-  #####osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
+  osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
   <우분투 환경 사진+루비 젬 환경사진>
   <맥 루비 젬 환경사진>
