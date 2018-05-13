@@ -1,7 +1,10 @@
 ## Jekyll installation
 [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)
 
-###RVM & Ruby install 
+
+
+##RVM & Ruby install 
+
 >만약 OSX사용자시면, ruby가 깔려있습니다. 혹 모르니 brew install ruby 해주세요.  
 ```shell
 $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -51,7 +54,10 @@ $ rvm use ruby_version
 >절대 우분투 환경에서 apt-get으로 ruby를 설치하시면 안됩니다.
 >옛날버전의 루비여서 jekyll를 사용하려고 하면 환경설정부터 각종 오류를 토해냅니다.
 
-###jekyll install
+
+
+##jekyll install
+
 ```shell
 $ gem install jekyll
 #다른 블로그에서는 bundler도 같이 설치하라는데 왜쓰는지 모르겠다.
@@ -85,7 +91,8 @@ $ git push
 > Welcome 뜨면 성공  
 
 
-###issue
+
+##issue
 
 #####problem1
 >apt-get 으로  ruby 설치 했을때 에러
