@@ -1,5 +1,4 @@
-## Jekyll install
-* Installation  
+## Jekyll installation  
   [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)  
 
 #####RVM & Ruby install  
