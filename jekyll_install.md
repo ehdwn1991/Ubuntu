@@ -3,6 +3,7 @@
   [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)  
 
 #####RVM & Ruby install  
+
   >만약 OSX사용자시면, ruby가 깔려있습니다. 혹 모르니 brew install ruby 해주세요.  
   ```shell
   $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
