@@ -1,4 +1,10 @@
+0. 
 [TOC]
+
+
+0. 
+{:toc}
+
 
 ## Jekyll installation
 
@@ -97,7 +103,7 @@ $ git push
 
 ##issue
 
-####problem1
+###problem1
 >apt-get 으로  ruby 설치 했을때 에러
 
 > apt-get으로 ruby를 설치했더니
@@ -112,7 +118,8 @@ $ Bundler: ruby: No such file or directory --
 command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 ```
 
-####problem2
+###problem2
+
 >osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
 ![[ruby]ubunturubyversion](assets/[ruby]ubunturubyversion.png)
