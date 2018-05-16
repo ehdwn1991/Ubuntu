@@ -1,12 +1,12 @@
 [TOC]
-
-## Jekyll installation
+# Jekyll installation
 
 [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)
 
 참고해주세요.
 
-##RVM & Ruby install 
+
+##RVM&Ruby install
 
 >만약 OSX사용자시면, ruby가 깔려있습니다. 혹 모르니 brew install ruby 해주세요.  
 ```shell
@@ -95,6 +95,25 @@ $ git push
 
 
 
+## jekyll Usage
+
+> 새로운 플러그인이나 환경 설정이 변경 되었을때 반드시  
+>
+> 추가된 내용이 적용되도록 번들을 이용해야 합니다.
+
+```shell
+$ bundle install
+$ bundle update
+```
+
+> 로컬에서 실시간으로 웹페이지를 보고 싶다면
+
+```shell
+$ jekyll serve --livereload
+#실시간으로 적용된 부분을 다시 보여줌
+```
+
+
 ##issue
 
 ####problem1
@@ -116,8 +135,6 @@ command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 >osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
 ![[ruby]ubunturubyversion](assets/[ruby]ubunturubyversion.png)
-
-<맥 루비 젬 환경사진>
 
 > osx에서 개발할때와 우분투에서 개발할때 루비 버젼이 달라서 에러를 토해냄.
 > 맥은 기본적으로 루비가 설치되어 있고 brew를통해 최신 루비 설치가 가능함.
