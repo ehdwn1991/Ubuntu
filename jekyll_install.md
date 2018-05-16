@@ -1,16 +1,7 @@
 0. 
-[TOC]
-<<<<<<< HEAD
-# Jekyll installation
-=======
-
-
-0. 
 {:toc}
 
-
-## Jekyll installation
->>>>>>> 5644599b6a070ba098cbb9402be3bc9468bcfa60
+# Jekyll installation
 
 [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)
 
