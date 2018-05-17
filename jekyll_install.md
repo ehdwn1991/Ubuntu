@@ -1,15 +1,14 @@
-0. 
+# Table contents
+{:.no_toc}
+0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
-
 # Jekyll installation
 
 [Ruby installation Refernce](https://www.ruby-lang.org/ko/documentation/installation/)
-
 참고해주세요.
 
 
 ##RVM&Ruby install
-
 >만약 OSX사용자시면, ruby가 깔려있습니다. 혹 모르니 brew install ruby 해주세요.  
 ```shell
 $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -52,9 +51,13 @@ $ rvm use ruby_version
 ```
 >http://jekyllrb-ko.github.io/docs/installation/ 에서 루비 설치홈에 가보면 최신버전은
 >`ruby 2.5.1`이다.  
+* 루비 최신 버전 정보
+![a](assets/a.png)
+
+
 >개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에  
 >다시 최신버전으로 재설치를 했어야 했습니다. ㅠㅠ  
->[osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생](#problem1)
+>[osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생[해결]](#problem1)
 
 >절대 우분투 환경에서 apt-get으로 ruby를 설치하시면 안됩니다.
 >옛날버전의 루비여서 jekyll를 사용하려고 하면 환경설정부터 각종 오류를 토해냅니다.
@@ -119,6 +122,7 @@ $ jekyll serve --livereload
 ##issue
 
 ###problem1
+
 >apt-get 으로  ruby 설치 했을때 에러
 
 > apt-get으로 ruby를 설치했더니
@@ -138,6 +142,16 @@ command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 >osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
 ![[ruby]ubunturubyversion](assets/[ruby]ubunturubyversion.png)
+
+우분투에 ruby 2.5.1 최신 버전을 설치해야 했습니다.  
+앞에서 rvm을 설치 했기 때문에 rvm 으로 설치 진행 하겠습니다.
+```shell
+$ rvm remove ruby-2.4.1
+$ rvm install ruby 2.5.1
+$ ruby -v
+$ ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+$ gem install jekyll bundle
+```
 
 > osx에서 개발할때와 우분투에서 개발할때 루비 버젼이 달라서 에러를 토해냄.
 > 맥은 기본적으로 루비가 설치되어 있고 brew를통해 최신 루비 설치가 가능함.
