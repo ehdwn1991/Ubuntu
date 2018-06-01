@@ -2,7 +2,7 @@
 ===
 
 * [Git](#git-installation-and-setting)
-  * [Git다중 계정 ssh 연결](#Git-multi-user-ssh-setting)
+  * [Git다중 계정 ssh 연결](#git-multi-user-ssh-setting)
 * [vim](#vim-installation-and-setting)
 * [Ubuntu]
   * [root계정](#root)
