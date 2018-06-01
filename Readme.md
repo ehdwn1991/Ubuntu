@@ -149,15 +149,21 @@ Hi "원래계정 이름 나옴"! You've successfully authenticated, but GitHub d
 $ssh -T git@github.com-project
 Hi "추가계정 이름 나옴"! You've successfully authenticated, but GitHub does not provide shell access.
 //위에 처럼 확인 됬으면 새로운 git계정에 ssh를 연결해서 사용할 준비가 다됬습니다.
+//이제 이전에 했던 Git hub에 ssh 새로 생성한 키를 등록해 주세요.
 ```
->자 이제 거의 다됬습니다. 추가 계정의 repository만 remote 해주면 되겠네요.
+>자 이제 거의 다됬습니다. 추가 계정의 repository만 remote 해주면 되겠네요.  
 ```shell
 $mkdir project && cd project
 $git init
+$git config user.name project
+$git config user.email project@email.com
 $git remote add origin git@github.com-project:YOURNAME/REPOSITORY.git
 //아까 config 에서 설정했던 두번째 계정의 Host 가 github.com-project 였죠
 //그래서 remote 로 연결해 줄때도 git@github.com-project로 연결해줘야 합니다.
-
+$echo "project" >> readme.md
+$git add -A
+$git commit -m "firstcommit"
+$git push -u origin master
 ```
 
 
