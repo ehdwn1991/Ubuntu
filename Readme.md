@@ -2,6 +2,7 @@
 ===
 
 * [Git](#git-installation-and-setting)
+  * [Git다중 계정 ssh 연결](#Git-multi-user-ssh-setting)
 * [vim](#vim-installation-and-setting)
 * [Ubuntu]
   * [root계정](#root)
@@ -99,6 +100,66 @@ $git remote show <name>
 //분명 HEAD 브랜치 : (unknown) 이라고 나올것이다. 
 $git push <name> master
 ```
+
+
+
+## Git multi user ssh setting
+>현재 사용하는 Git 계정이 두개입니다. 뭔가 생각에는 계정이 두개 있어도 한번 만들어져 있는  
+>ssh key를 사용해도 될것 같지만, 이미 사용한 ssh key를 다른 계정에 등록하려고 하면  
+>`key is already used.`라고 나옴니다. 때문에 추가 계정을 위한 ssh key가 필요합니다.  
+>먼저 .ssh 폴더안의 파일을 보면 이해가 빠릅니다.
+```shell
+$cd ~/.ssh
+.
+├── config -> 여러개정을 연결하기 위한 cofing
+├── id_rsa
+├── id_rsa.pub -> 원래 계정의 ssh key
+├── id_rsa_blog
+└── id_rsa_blog.pub -> 추가 계정의 ssh key
+```
+>일단 추가 계정을 위한 ssh key를 생성해야 합니다.  
+```shell
+$ssh-keygen -t rsa -C "username@gmail.com" //새 계정의 이메일 주소
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/Edwardson/.ssh/id_rsa): 
+id_rsa_project   //project는 임의로 작명해 주세요.
+...
+
+$ssh-add ~/.ssh/id_rsa_project    
+//ssh key 추가
+$ssh-add -l                       
+//ssh key 저장
+$vi config
+//이제 ssh가 두개가 됬으니 각각 생성된 key로 동작하도록 연결해줘야 합니다.
+//cofig를 .ssh안에 만들어줘서 다음 내용을 추가해 주세요.
+# default account
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa
+
+# project account
+Host github.com-project
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_project
+
+$ssh -T git@github.com
+Hi "원래계정 이름 나옴"! You've successfully authenticated, but GitHub does not provide shell access.
+$ssh -T git@github.com-project
+Hi "추가계정 이름 나옴"! You've successfully authenticated, but GitHub does not provide shell access.
+//위에 처럼 확인 됬으면 새로운 git계정에 ssh를 연결해서 사용할 준비가 다됬습니다.
+```
+>자 이제 거의 다됬습니다. 추가 계정의 repository만 remote 해주면 되겠네요.
+```shell
+$mkdir project && cd project
+$git init
+$git remote add origin git@github.com-project:YOURNAME/REPOSITORY.git
+//아까 config 에서 설정했던 두번째 계정의 Host 가 github.com-project 였죠
+//그래서 remote 로 연결해 줄때도 git@github.com-project로 연결해줘야 합니다.
+
+```
+
 
 
 
