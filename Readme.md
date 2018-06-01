@@ -102,8 +102,8 @@ $git push <name> master
 ```
 
 
-
-## Git multi user ssh setting
+Git multi user ssh setting
+---
 >현재 사용하는 Git 계정이 두개입니다. 뭔가 생각에는 계정이 두개 있어도 한번 만들어져 있는  
 >ssh key를 사용해도 될것 같지만, 이미 사용한 ssh key를 다른 계정에 등록하려고 하면  
 >`key is already used.`라고 나옴니다. 때문에 추가 계정을 위한 ssh key가 필요합니다.  
