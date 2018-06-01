@@ -1,13 +1,18 @@
 우분투 설정
 ===
 
-* [Git](#git-installation-and-setting)
+* [Git install and setting](#git-installation-and-setting)
   * [Git다중 계정 ssh 연결](#git-multi-user-ssh-setting)
-* [vim](#vim-installation-and-setting)
-* [Ubuntu]
-  * [root계정](#root)
+* [Vim](#vim-installation-and-setting)
+  * [Vim Scheme](#vim-scheme)
+  * [Vim Plugin Install & Usage](#vim-plugin-install)
+  * [YouComPleteMe(자동완성)](#youcompleteme)
+  * [Airline Install & Usage](#airline)
+  * [Ctag Insatll & Usage](#ctag)
+* Ubuntu
+  * [root계정 설정](#root)
+  * [Autojump Install](#autojump-installation)
   * [mouse accelerator turn off](#mouse-setting)
-* [test](#test-테스트)
 
 
 root
@@ -357,4 +362,3 @@ $echo $DIPLAY
 ```
 
 
-## test 테스트
