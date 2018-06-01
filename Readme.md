@@ -356,4 +356,5 @@ $echo $DIPLAY
 7. Gnome으로 변경후 업데이트 [됨]
 ```
 
-##test 테스트
+
+## test 테스트
