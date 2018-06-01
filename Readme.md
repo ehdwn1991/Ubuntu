@@ -210,7 +210,7 @@ vim scheme
 ```
 >후...여러가지 준비해봤습니다. 제대로 모시겠습니다.[Vim 설정](./vim/Mac_vim_setting)
 
-###vim scheme
+### vim scheme
 
 > 여러가지 테마는 [http://vimcolors.com](http://vimcolors.com/)여기에 많습니다.
 > 테마가 들어가야할 위치는
@@ -247,7 +247,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 ```
 
-###youcompleteme
+### youcompleteme
 
 >자동 완성 플러그인 입니다. 자세한건 [여기](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)를 참고해 주세요
 
