@@ -7,6 +7,7 @@
 * [Ubuntu]
   * [root계정](#root)
   * [mouse accelerator turn off](#mouse-setting)
+* [test](#test-테스트)
 
 
 root
@@ -354,3 +355,5 @@ $echo $DIPLAY
 6. 우분투 업데이트 [안됨]
 7. Gnome으로 변경후 업데이트 [됨]
 ```
+
+##test 테스트
