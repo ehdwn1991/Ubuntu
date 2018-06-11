@@ -19,7 +19,9 @@
 
   * Gemfile
 
-    
+    주로 해당 블로그에 적용되는 플러그인이 gem으로 동작할수있게 명시해줌  
+
+    테마에 대한 remote나 jekyll의 버전 에 대한 정보를 담고있음
 
 * 루트 폴더에서 index.md를 찾아서 가장 먼저 보여준다
 
@@ -43,7 +45,13 @@
 
   웹알못이기 떄문에 이부분은 좀더 공부한 후에 작성
 
-* 
+* jekyll 에서 다양한 Collection이 있지만 기본적으로 구성된 Collection은 _post이다
+
+  만약 다른 Collection이 없다면 jekyll 은 _post에 있는 Markdown문서들은 나열할것이다.  
+
+  하지만, _config.yml에 다른 Collection이 명시되어 있다면 해당 Collection은  
+
+  _post Collection을 먼저 활용하게 된다.
 
 
 
