@@ -1,11 +1,49 @@
-```c
-1. 페이지 만들기
-2. 
-```
 ## Table contents
 {:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
+
+## Working in Hydejack
+
+* _config.yml, Gemfile 의 초기 설정
+
+  jekyll을 시작하기 전에 필요한플러그 인이나 기본 설정을 완료해야한다.
+
+  * _config.yml
+
+    블로그의 URL, Name, DIsqus, Collection, Markdown Converter...등  
+
+    jekyll이 동작하고 블로그에 필요한 초기 정보를 담고 있다.  
+
+    주로 플러그인과 블로그의 설정.
+
+  * Gemfile
+
+    
+
+* 루트 폴더에서 index.md를 찾아서 가장 먼저 보여준다
+
+  index.md에 있는 Fornt matter의 layout에 해당 하는 html문서를 템플릿처럼  
+
+  사용해서 동작함
+
+* _layout 에 있는 layout 문서들은 _Include안에 문서들과 연동
+
+  _include 안에는 head.html, body.html... 등 다양한 기본 문서가 존재함  
+
+  여기 있는 문서들은 전부 웹페이지의 한 부분을 보여주기 위해 필요한 요소 들이다.  
+
+  만약 html만으로 웹페이지를 만들었다면 _include 안에 있는 문서들이 한곳에  
+
+  통합 되어 있을것이다. 하지만 효율적으로 캡슐화 하여 필요한곳에 쓰이게  
+
+  각 용도 별로 나눠져있다.
+
+* 웹페이지가 돌아가기 이전에 _js폴더에서 자바 스크립트가 동작
+
+  웹알못이기 떄문에 이부분은 좀더 공부한 후에 작성
+
+* 
 
 
 
@@ -69,12 +107,18 @@ hydejack 구조
   (따로 도메인을 설정하지 안았을때)
   baseurl 은 당신이 호스팅한 페이지에 따라 달라진다.
 
+* Plugin
+  _config 에서 다양한 플러그인과 현재 페이지의 각종 정보를 담고 있다.  
+  예를 들어 `disqus`의 기능을 추가하려고 할때 여기에 명시해 주어야한다.  
+  물론 `font`에 관한 내용도 여기에 들어가야한다. 일단은 그렇게만 알고 있고  
+  블로그를 만들어 가면서 파악하면될듯.  
 
 
 
 
 
-##Page
+
+## Page
 >거의 모든 웹환경의 설정은 루트폴더에서 index.html 인 파일을 찾아 홈페이지로 보여줌
 >물론 지킬도 이런 관례를 따름
 
@@ -121,7 +165,7 @@ hydejack 구조
 
 
 
-##hydejack 에서 side bar 추가하기
+## hydejack 에서 side bar 추가하기
 ```shell
 ---
 layout: page  =>page 와 list중에 어울리는걸로 하면될듯 
@@ -173,7 +217,7 @@ $ tree -L 2
    읽어 오고 yaml헤더에 따라 용도와 방법이 구분됩니다.
 
 ```shell
-#index.md
+# index.md
 ---
 layout: list
 title: testfolder
@@ -197,7 +241,7 @@ order: 1
    현재는 두가지의 다른 포스트를 준비했습니다.
 
 ```shell
-#2018-05-05-testpost.md
+# 2018-05-05-testpost.md
 ---
 layout: post
 title:  test_post
@@ -206,7 +250,7 @@ tag: [testpost]
 ---
 테스트 포스트입니다. 현재 태그는 testpost입니다.
    
-#2018-05-05-testpage.md
+# 2018-05-05-testpage.md
 ---
 layout: page
 title:  test_page
@@ -216,9 +260,10 @@ tag: [testpost]
 테스트 페이지입니다. 현재 태그는 testpost입니다.   
 ```
 
-   
 
->Github page defendency 문제 해결
+## Issue
+
+### Github page defendency 문제 해결
 >Gemfile 에 다음 내용 추가
 ```sh
 require 'json'
@@ -232,13 +277,43 @@ $ bundle install
 ```
 [Github Defendency version](https://pages.github.com/versions/)
 
+### 헤드태그 id가 한글명이라서 내부 이동이 안됨
+>이부분에서 삽질 많이 했습니다. 웹알못이라 아무리 검색하고 찾아봐도  
+>이유를 알수가 없었습니다. 그리고 결국 해결했지만 완벽한 방법은 아닙니다.  
+>혹시라도 방법을 알고 계시다면 댓글에 써주세요 ㅠㅠ  
+
+우선 문제의 내용을 보여 드릴꼐요.
+```markdown
+// 2018-01-01-test.md
+...
+## 내부링크 테스트
+...
+
+// 2018-01-01-test.html ->jekyll를 통해 html 변환후
+...
+<>
+...
+
+
+...
+```
+문제 해결을 위해 시도했던 방법들입니다.
+1. Font 교체(실패)
+
+   혹시나 font의 문제 때문에 그런줄알고 `google font` 에서
+
+   한글지원이 된느 폰트로 교체하였습니다. 하지만 실패...
+
+
+
+
 
 
 [카테고리 페이지 나누기](https://pengpengto.gitlab.io/blog/tech/2017/06/08/jekyll-category_pagination.html)
 
 
 
-#####index.md of location
+##### index.md of location
 ```shell
 .
 ├── _data
@@ -260,7 +335,7 @@ $ bundle install
 
 
 
-#####Whole structure
+##### Whole structure
 ```shell
 .
 ├── Gemfile
