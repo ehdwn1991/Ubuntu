@@ -1411,7 +1411,7 @@ div.output_subarea.output_text {
  border-top-right-radius: 0px;
  border-top-left-radius: 0px;
 }
-
+/*output size*/
 div.output_area pre {
  font-family: monospace, monospace;
  font-size: 18pt !important;
@@ -2417,6 +2417,8 @@ div#pager .ui-resizable-handle {
  border-top: 1px solid #a6e22e;
  border-bottom: 1px solid #a6e22e;
 }
+
+/*input text size*/
 div.CodeMirror,
 div.CodeMirror pre {
  font-family: monospace, monospace;
