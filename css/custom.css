@@ -1411,9 +1411,10 @@ div.output_subarea.output_text {
  border-top-right-radius: 0px;
  border-top-left-radius: 0px;
 }
+
 div.output_area pre {
  font-family: monospace, monospace;
- font-size: 8.5pt !important;
+ font-size: 18pt !important;
  line-height: 151% !important;
  color: #cccccc;
  border-top-right-radius: 0px;
@@ -2419,7 +2420,7 @@ div#pager .ui-resizable-handle {
 div.CodeMirror,
 div.CodeMirror pre {
  font-family: monospace, monospace;
- font-size: 11pt;
+ font-size: 20pt;
  line-height: 170%;
  color: #f8f8f0;
 }
@@ -2765,4 +2766,3 @@ div#maintoolbar {
         }
     });
 </script>
-    .CodeMirror pre {font-family: Consolas; font-size: 15pt; line-height: 150%;}
