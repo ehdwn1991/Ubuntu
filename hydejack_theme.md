@@ -1,7 +1,3 @@
-## Table contents
-{:.no_toc}
-0. this unordered seed list will be replaced by toc as unordered list
-{:toc}
 
 ## Working in Hydejack
 
@@ -51,7 +47,7 @@
 
   하지만, _config.yml에 다른 Collection이 명시되어 있다면 해당 Collection은  
 
-  _post Collection을 먼저 활용하게 된다.
+  _post Collection을 먼저 rendering 하여 보여준다.
 
 
 
@@ -122,7 +118,17 @@ hydejack 구조
   블로그를 만들어 가면서 파악하면될듯.  
 
 
+## Post
 
+> _post
+
+jekyll 는 다양한 collection을 생성할수 있다.
+
+하지만 기본적으로 post라는 collection을 가지고 있고, _post폴더에 있는 post 들을 보여준다.
+
+`Issues`
+
+1. [포스트에 mycollection의 태그명을 추가해야함](#show-the-mycollection-slug-in-any-post)
 
 
 
@@ -167,14 +173,114 @@ hydejack 구조
 |   └── index.html  # => http://yoursite.com/contact/
 └── index.html      # => http://yoursite.com/
 ```
-## List
+## Collection
 
+[Jekyll 에서 제공하는 Collection 정의 참고](https://jekyllrb.com/docs/collections/)
 
+Collection은 티스토리 같은 블로그의 tag와 category기능이랑 비슷하다고 보면됩니다.
 
+물론 Jekyll 에서는 그런 기능들을 만들어줘야 할뿐입니다.
 
+Hydejack에서 제공하는 Collections은 tag, category 이다.
 
-## hydejack 에서 side bar 추가하기
+하지만 사용자에 의해서 따로 Collection을 설정하여 사용할수도있다.
+
 ```shell
+# 다음은 jekyll 루트 폴더의 Collection구조입니다.
+./
+...
+├── _featured_categories
+├── _featured_tags
+├── _my_collection
+...
+# Hydejack이 제공하는 tag와 categry가 있지만
+# 추가적으로 _my_collection을 만들었습니다.
+```
+
+my collection을 tag나 category같은 기능 으로 사용하면서
+
+my collection안에 작성된 post들을 새로운 분류로 나열 하려고함. 
+
+1. _config.yml 에 collection 추가
+
+```markdown
+# _config.yml
+# Collections
+collections:
+  featured_categories:
+    permalink:         /category/:name/
+    output:            true
+  featured_tags:
+    permalink:         /tag/:name/
+    output:            true
+  my_collection:
+    permalink:         /my_collection/:name/
+    output: true
+```
+
+2. 루트 폴더에 카테고리명으로 폴더 생성
+
+```shell
+./
+...
+├── _featured_categories
+├── _featured_tags
+├── _my_collection  -> 반드시 폴더명은 collection이름 앞에 `_`를 붙여줘야합니다.
+...
+```
+
+3. _my_collection 폴더 안에 index.md생성
+
+```markdown
+./
+...
+├── _my_collection
+  ├── index.md
+  ├── samplecollection.md
+  ├── samplepost.md
+...
+# index.md
+---
+layout: default
+title: my collection list
+description: >
+  my collection의 새로운 분류에 따른 카테고리 리스트를 보여주려 합니다.
+menu: true
+order: 1
+---
+# samplecollection.md
+---
+layout: list
+title: 새로 분류할 collection 입니다.
+description: >
+slug: test -> tag나 category의 slug같은것
+---
+# samplepost.md
+---
+layout: post
+title: sample post 입니다.
+description: >
+my_collection: [test]
+categories: [category_test]
+tags: [tag_test]
+---
+```
+
+이제 기본 골격은 다 갖췄습니다.
+
+my collection에서 보이고 싶은 포스트나 내용을 입맛에 맞게 바꾸면 됩니다.
+
+`Issues`
+
+1. [콜렉션에서 새로 분류한 카테고리별로 리스팅](#New-collection-listing)
+2. [새로운 카테고리에서 해당 분류로 모아진 post listing](#New-collection-classifying-post)
+3. [기존에 있던 list에서 my collection에 있는포스트를 못불러옴](#List-layout-can't-listing-post-in-mycollection) 
+
+
+
+## Adding Sidebar in jekyll
+
+```markdown
 ---
 layout: page  =>page 와 list중에 어울리는걸로 하면될듯 
 title: test_page =>사이드바에 표시될 이름
@@ -216,7 +322,7 @@ $ tree -L 2
 
 그럼 이제 밑의 사진 처럼 구성이 되어 있을것입니다.
 
-![fol](assets/fol.png)
+![fol](https://raw.githubusercontent.com/ehdwn1991/Ubuntu/master/assets/fol.png)
 
 이제 각 폴더와 파일들을 상세하게 살펴보면 될것같습니다.
 
@@ -269,9 +375,59 @@ tag: [testpost]
 ```
 
 
+
+## Authors
+
+about 페이지나 각 포스트들의 footer에 사용자의 사진과 정보가 표시될수있게함.
+
+* _layout/about.html
+
+  about 페이지를 만들때 쓰임.
+
+```ruby
+{% raw %}
+# _layout/about.html
+{% assign plugins = site.plugins | default:site.gems %}
+<article class="page" role="article">
+  {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
+이부분이 _data안에 있는 authors.yml문서의 값을 불러옴
+  {% if author.picture %}
+    {% include srcset-img.html class="avatar" img=author.picture alt=author.name %}
+  {% elsif plugins contains 'jekyll-avatar' %}
+    {% assign avatar = author.social.github | default:author.github.username | default:author.github %}
+    {% include avatar-tag.html user=avatar %}
+  {% endif %}
+
+  <h1 class="page-title hr">{{ page.title }}</h1>
+
+  {{ author.about | markdownify }}
+
+  {% include message.html text=page.description hide=page.hide_description alt="" %}
+
+  {{ content }}
+</article>
+{% endraw %}
+```
+
+
+
+* _include/about.html
+
+
+* _date/authors.yml
+
+  여기 안에서 author1, author2 등으로 사용자의 이름, 주소, 사진, github 등을 정의함
+
+
+
+`Issues`
+
+1. [about페이지와 footer에 사진이 제대로 안나옴](#Can't-show-picture-in-about-page-and-footer)
+
 ## Issue
 
-### Github page defendency 문제 해결
+### Github page defendency Problem
+
 >Gemfile 에 다음 내용 추가
 ```sh
 require 'json'
@@ -285,7 +441,8 @@ $ bundle install
 ```
 [Github Defendency version](https://pages.github.com/versions/)
 
-### 헤드태그 id가 한글명이라서 내부 이동이 안됨
+### Header tag by korean is not working
+
 >이부분에서 삽질 많이 했습니다. 웹알못이라 아무리 검색하고 찾아봐도  
 >이유를 알수가 없었습니다. 그리고 결국 해결했지만 완벽한 방법은 아닙니다.  
 >혹시라도 방법을 알고 계시다면 댓글에 써주세요 ㅠㅠ  
@@ -296,12 +453,10 @@ $ bundle install
 ...
 ## 내부링크 테스트
 ...
-
 // 2018-01-01-test.html ->jekyll를 통해 html 변환후
 ...
 <>
 ...
-
 
 ...
 ```
@@ -310,7 +465,201 @@ $ bundle install
 
    혹시나 font의 문제 때문에 그런줄알고 `google font` 에서
 
-   한글지원이 된느 폰트로 교체하였습니다. 하지만 실패...
+   한글지원이 되는 폰트로 교체하였습니다. 하지만 실패...
+
+
+
+### New collection listing
+
+`콜렉션에서 새로 분류한 카테고리별로 리스팅`
+
+_my_collection폴더 안에 index.md의 기능 추가하고,  
+
+새로운 레이아웃에 해당 기능을 추가하고 index.md에서 mycategory를 적용하여 해결.
+
+my collection에 존재하는 class들의 리스트를 만들어줘야 한다.
+
+```ruby
+{% raw %}
+# _layout/mycategory.html
+<article class="page" role="article">
+  <header>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% include message.html text=page.description hide=page.hide_description %}
+  </header>
+  {{ content }}
+{% for test in site.my_collection %}
+{% if test.title != page.title %}
+    {% if test.layout == "study_post" %}
+    {% assign studycoll = test.title | join:'|' | append:'|' %}
+    {% assign scoll = scoll | append:studycoll %}
+<h2><li><a href="{{ test.url | prepend: site.baseurl }}">
+       {{ test.title }} </a></li></h2>
+    {% endif %}
+{% endif%}
+{% endfor %} 
+</article> 
+{% endraw %}
+```
+
+```markdown
+# _my_collection/index.md
+---
+layout: mycategory
+title: Study
+description: >
+menu: true
+order: 2
+---
+```
+
+
+
+
+
+### New collection classifying post
+
+`새로운 카테고리에서 해당 분류로 모아진 post listing`
+
+새로 분류된 class에서 _my_collection 안에서 작성된 포스트들을 보여줘야한다.  
+
+레이 아웃에 mylist.html 을 만들어서 해당 기능 넣고 해결.
+```ruby
+{% raw  %}
+# _layout/mylist.html
+
+{% for post in site.my_collection %}
+{% if post.my_collection contains page.slug%}
+   <li>
+  <a href="{{ post.url | relative_url }}" class="h4 flip-title">
+    <span>{{ post.title }}</span>
+  </a>
+  <time class="heading faded fine" datetime="{{ post.date | date_to_xmlschema }}">
+  {{ post.date | date:list_entry }}</time>
+</li>
+{% endif%}
+{% endfor %}
+{% endraw %}
+```
+
+```markdown
+# _my_collection/index.md
+---
+layout: mylist
+title: 새로 분류할 collection 입니다.
+description: >
+slug: test -> tag나 category의 slug같은것
+---
+```
+
+
+
+
+
+### List layout can't listing post in mycollection
+
+`기존에 있던 list에서 my collection에 있는포스트를 못불러옴`
+
+Hydejack에서 제공하는 list layout에서 mycollection에 있는 포스트중
+
+tag와 category 로 분류 되있는 포스트를 못불러옴.
+
+list layout에 my collection에 있는 tag와 category를 가진 포스트를 불러오게끔 해서 해결
+```ruby
+{% raw %}
+# _layout/list.html
+...
+{% assign category = site.featured_categories | where: "slug", page.slug | first %}
+{% if category %}
+  {% assign posts = site.categories[page.slug] %}
+  {% assign s_category = site.my_collection | where:"categories", page.slug%}
+  {% assign posts = posts | concat: s_category %}
+{% else %}
+  {% assign tag = site.featured_tags | where: "slug", page.slug | first %}
+  {% if tag %}
+    {% assign posts = site.tags[page.slug] %}
+    {% assign s_tag = site.my_collection | where:"tags", page.slug%}
+    {% assign posts = posts | concat: s_tag %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+{% endif %}
+  {% if posts%}
+  {% assign posts = posts | sort: 'date,title' | reverse %}
+  {% endif%}
+ ...
+{% endraw %}
+```
+
+### home Layout can't show the post in mycollection
+`_layout/default.html 에 mycollection내용도 보여지게 추가`
+```ruby
+{% raw %}
+  <!--fix-->
+    {% assign allpost= site.posts %}
+    {% assign study_post = site.study | where:"layout", "post"%}
+    {% assign allpost = allpost | concat: study_post %}
+  {% if site.posts.size > 0 %}
+    <h2 class="hr">{{ strings.posts | default:"Posts" }}</h2>
+    <ul class="related-posts">
+      {% for post in allpost limit:10 %}
+        {% include post-list-item.html post=post %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <!--fix-->
+{% endraw%}
+```
+
+
+### Can't show picture in about page and footer
+
+`about페이지와 footer에 사진이 안나옴`
+
+./_date/author.yml 에서 srcset부분 삭제 해서 해결
+
+```yml
+...
+srcset:
+     1x:            https://placehold.it/128x128
+     2x:            https://placehold.it/256x256
+...
+```
+
+
+
+### show the mycollection slug in any post
+
+`모든 포스트에서 mycollection의 slug표시`
+
+_include/post.html에서 mycollection의 slug를 표시하도록 수정
+
+```ruby
+{% raw %}
+...
+ {% assign study_start     = site.data.strings.study_start     | default:"at " %}
+ {% assign study_separator      = site.data.strings.study_separator      | default:", "  %}
+...
+ {% include tag-list.html tags=post.study meta=site.study start_with=study_start separator=study_separator %}
+...
+{% endraw %}
+```
+
+
+
+_data/strings.ymll에서 mycollection의 slug 표시방법 추가
+
+```ruby
+{% raw %}
+...
+#Seperators
+study_start:             'at '
+study_separator:         ', '
+...
+{% endraw %}
+```
+
+
 
 
 
