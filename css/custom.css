@@ -1414,7 +1414,7 @@ div.output_subarea.output_text {
 /*output size*/
 div.output_area pre {
  font-family: monospace, monospace;
- font-size: 18pt !important;
+ font-size: 15pt !important;
  line-height: 151% !important;
  color: #cccccc;
  border-top-right-radius: 0px;
@@ -2422,7 +2422,7 @@ div#pager .ui-resizable-handle {
 div.CodeMirror,
 div.CodeMirror pre {
  font-family: monospace, monospace;
- font-size: 20pt;
+ font-size: 15pt;
  line-height: 170%;
  color: #f8f8f0;
 }
