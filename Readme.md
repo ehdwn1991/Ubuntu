@@ -1,4 +1,4 @@
-우분투 설정
+ 우분투 설정
 ===
 
 * [Git install and setting](#git-installation-and-setting)
@@ -361,4 +361,21 @@ $echo $DIPLAY
 7. Gnome으로 변경후 업데이트 [됨]
 ```
 
+
+
+
+
+## gnome 설치
+
+https://www.omgubuntu.co.uk/2016/05/install-gnome-3-20-ubuntu-16-04-lts
+
+
+
+```shell
+$ sudo add-apt-repository ppa:gnome3-team/gnome3-staging
+$ sudo add-apt-repository ppa:gnome3-team/gnome3
+$ sudo apt update
+$ sudo apt dist-upgrade
+$ sudo apt install gnome gnome-shell
+```
 
