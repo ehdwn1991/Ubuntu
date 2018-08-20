@@ -37,7 +37,15 @@ LVM이니까 나중에 확장하거나 축소 할때 편할것 같다.
 $ sudo apt-get update
 ```
 
+업데이트 하시는 김에 이것저것 풀 패키지로 설치하고 혹여나 듀얼 부팅 하시는 분들 GRUB에서 이미지를
 
+잡아주고 해야하는데 
+
+```shell
+$ sudo apt update --fix-missing
+```
+
+사실상 요고 한방에 boot-repair 안해줘도 됩니다.
 
 
 
@@ -153,14 +161,6 @@ $ sudo apt-get install gnome-panel
 $ sudo apt install gnome
 $ sudo reboot
 ```
-
-
-
-![1534179410439](/home/codex/1534179410439.png)
-
-
-
-![1534179432281](/home/codex/1534179432281.png)
 
 
 
@@ -299,11 +299,65 @@ $ sudo apt-get install libgtk-3-dev
 
 
 
+## Gnome extension
+
+### Dash to dock
+
+맥처럼 간지나게 바꿔 주자.
+
+![1534775620196](/home/codex/Codex/Ubuntu/img/1534775620196.png)
+
+![1534775693923](/home/codex/Codex/Ubuntu/img/1534775693923.png)
+
+![1534775719682](/home/codex/Codex/Ubuntu/img/1534775719682.png)
+
+![1534775734312](/home/codex/Codex/Ubuntu/img/1534775734312.png)
+
+![1534775746099](/home/codex/Codex/Ubuntu/img/1534775746099.png)
 
 
 
+## 후기 
 
+참 생고생을 다한것 같다....
 
+사실 제글을 끝까지 읽어주신 여러분들 을 위해 사실대로 고하겠습니다.
+
+그냥 업그레이드 하지 마시고, gnome 용 ubuntu를 설치하세요,...
+
+[https://ubuntugnome.org/](https://ubuntugnome.org/) 여기를 참고하시면서 [여기에서 iso 다운받으시면 됩니다.](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes/UbuntuGNOME)
+
+그럼 위의 과정 단 한개도 거치지 안아도 됩니다. ㅠㅠ
+
+![gnome_last](/home/codex/Codex/Ubuntu/img/gnome_last.png)
 
 [블로그 설치 참고](https://b.chalk.pe/posts/setting-up-ubuntu-gnome-16-04/)
 
+혹여나 gnome 업데이트후 한글키가 안먹히는 분들은 
+
+다음 과정을거쳐주세요.
+
+>  설정 -> 지역 및 언어 ->  입력 소스 추가
+
+![1534668160207](/home/codex/Codex/Ubuntu/img/1534668160207.png)
+
+> 설정 -> 키보드-> 바로가기
+
+![1534668177703](/home/codex/Codex/Ubuntu/img/1534668177703.png)
+
+위의 구성처럼 똑같이 만들어 주시면 됩니다.
+
+
+
+현재 Ubuntu - gnome 16.04 LTS는 ibus 언어입력기를 사용하고 있는데 이러면 sublimetext에서 사용이 불가 합니다.
+
+때문에 언어 선택기를 설치하고 fcitx를 설정해줘야 합니다.
+
+```shell
+$ sudo apt install language-selector-gnome
+$ gnome-language-selector
+```
+
+![1534774722127](/home/codex/Codex/Ubuntu/img/1534774722127.png)
+
+화면처럼 fcitx를 선택해주세요.
