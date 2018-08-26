@@ -1,6 +1,6 @@
 # Ubuntu 16.04LTS 설치후 설정
 
-
+[TOC]
 
 ## Ubuntu partitioning
 
@@ -72,6 +72,103 @@ $ ehco http://paste.ubuntu.com/p/JSg7bd3dWx/ > log.txt
 
 
 
+## 한글설정 관련
+
+우분투가 상당히 좋아져서 설치시 한글로 설치만 해도 왠만한 패키지는 알아서 설정된는듯하다.
+
+근데, ibus가 기본으로 설정 되어 있는데 sublime text에서 한글 입력이 안되는 문제 발생.
+
+혹여나 gnome 업데이트후 한글키(한글 토글키) 안됨.
+
+
+
+> 설정 -> 지역 및 언어 ->  입력 소스 추가
+
+![1534668160207](/home/codex/Codex/Ubuntu/img/1534668160207.png)
+
+> 설정 -> 키보드-> 바로가기
+
+![1534668177703](/home/codex/Codex/Ubuntu/img/1534668177703.png)
+
+위의 구성처럼 똑같이 만들어 주시면 됩니다.
+
+
+
+현재 Ubuntu - gnome 16.04 LTS는 ibus 언어입력기를 사용하고 있는데 이러면 sublimetext에서 사용이 불가 합니다.
+
+때문에 언어 선택기를 설치하고 fcitx를 설정해줘야 합니다.
+
+```shell
+$ sudo apt install language-selector-gnome
+$ gnome-language-selector
+```
+
+![1534774722127](/home/codex/Codex/Ubuntu/img/1534774722127.png)
+
+화면처럼 fcitx를 선택해주세요.
+
+그리고 리부트.
+
+
+
+## Sublime Text
+
+[https://www.sublimetext.com/](https://www.sublimetext.com/) 뭐든 공홈을 뒤져보는 습관을 들이자.
+
+대부분 앱들은 내가 접속한 운영체제에 맞게 설치 매뉴얼을 바로 보여준다.
+
+```shell
+# stable version install
+$ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+Ensure apt is set up to work with https sources:
+
+$ sudo apt-get install apt-transport-https
+
+$ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+$ sudo apt-get update
+
+$ sudo apt-get install sublime-text
+```
+
+
+
+
+
+### Package contorol
+
+
+
+그리고 서브라임을 쓰는 이유는 다양한 패키지 들인데 패키지들도 설정해 주자.
+
+[https://packagecontrol.io/installation#st3](https://packagecontrol.io/installation#st3) 여기에 가면 패키지 설정에 입력해야 하는 내용이 나온다.
+
+고대로 복사하자.
+
+```c
+import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+```
+
+복사한 코드는 서브라임을 연후
+
+> ctrl+` 를 눌러서 입력해준후 엔터를 쳐주자
+
+그리고 파레트를 열어서 내가 원하는 패키지들을 설치해 주면 된다.
+
+> ctrl+shift+p 후 pci 검색 하면 package control install 이 나옴 엔터 후 내가 원하는 패키지 설치 
+
+
+
+### 
+
+
+
+[Material Theme](https://packagecontrol.io/packages/Material%20Theme)
+
+
+
+
+
 ## Typora
 
 문서 작성중에 마크다운에 빠진 이후로 타이포라를 애용해 주고 있다.
@@ -97,6 +194,59 @@ sudo apt-get install typora
 ```
 
 
+
+## Variety
+
+버라이어티는 배경화면을 수시로 바꿔주는 앱이다. 다양한 기능들이 있지만 배경을 바꿔 주는것과 명언이 나오는것이 너무 맘에 든다.
+
+[https://peterlevi.com/variety/](https://peterlevi.com/variety/) 참고하자
+
+```shell
+$ sudo add-apt-repository ppa:peterlevi/ppa
+$ sudo apt-get update
+$ sudo apt-get install variety variety-slideshow
+```
+
+![1535108050271](./img/1535108050271.png)
+
+
+
+## Shutter
+
+> 셔터는 스샷용 앱이다. 윈도우 유저들은 픽픽등 다양한 스샤용 앱을 사용하는것으로 알고 있다.
+
+[http://shutter-project.org/downloads/](http://shutter-project.org/downloads/) 공홈도 참고해 보자
+
+```shell
+# install stable version
+$ sudo add-apt-repository ppa:shutter/ppa
+$ sudo apt-get update && sudo apt-get install shutter
+```
+
+그리고 셔터를 전역키에서 사용하기 위해 거쳐야 하는작업이 있다.
+
+셔터의 사용법을 알아 보자면
+
+```shell
+# 마우스로 스크롤한 화면 스샷 select
+$ shutter -s
+# 선택 창 스샷 window
+$ shutter -w
+# 전체 화면 스샷 full
+$ shutter -f
+```
+
+위의 설정 들을 키보드설정에 넣어줘야함.
+
+> 설정 -> 키보드 -> 사용자설정 바로가기
+
+![1535108713579](./assets/1535108713579.png)
+
+
+
+![1535108761433](./assets/1535108761433.png)
+
+이런식으로 설정해 주면 된다.
 
 
 
@@ -333,31 +483,3 @@ $ sudo apt-get install libgtk-3-dev
 
 [블로그 설치 참고](https://b.chalk.pe/posts/setting-up-ubuntu-gnome-16-04/)
 
-혹여나 gnome 업데이트후 한글키가 안먹히는 분들은 
-
-다음 과정을거쳐주세요.
-
->  설정 -> 지역 및 언어 ->  입력 소스 추가
-
-![1534668160207](/home/codex/Codex/Ubuntu/img/1534668160207.png)
-
-> 설정 -> 키보드-> 바로가기
-
-![1534668177703](/home/codex/Codex/Ubuntu/img/1534668177703.png)
-
-위의 구성처럼 똑같이 만들어 주시면 됩니다.
-
-
-
-현재 Ubuntu - gnome 16.04 LTS는 ibus 언어입력기를 사용하고 있는데 이러면 sublimetext에서 사용이 불가 합니다.
-
-때문에 언어 선택기를 설치하고 fcitx를 설정해줘야 합니다.
-
-```shell
-$ sudo apt install language-selector-gnome
-$ gnome-language-selector
-```
-
-![1534774722127](/home/codex/Codex/Ubuntu/img/1534774722127.png)
-
-화면처럼 fcitx를 선택해주세요.
