@@ -84,11 +84,11 @@ $ ehco http://paste.ubuntu.com/p/JSg7bd3dWx/ > log.txt
 
 > 설정 -> 지역 및 언어 ->  입력 소스 추가
 
-![1534668160207](/home/codex/Codex/Ubuntu/img/1534668160207.png)
+![1534668160207](./img/1534668160207.png)
 
 > 설정 -> 키보드-> 바로가기
 
-![1534668177703](/home/codex/Codex/Ubuntu/img/1534668177703.png)
+![1534668177703](./img/1534668177703.png)
 
 위의 구성처럼 똑같이 만들어 주시면 됩니다.
 
@@ -103,7 +103,7 @@ $ sudo apt install language-selector-gnome
 $ gnome-language-selector
 ```
 
-![1534774722127](/home/codex/Codex/Ubuntu/img/1534774722127.png)
+![1534774722127](./img/1534774722127.png)
 
 화면처럼 fcitx를 선택해주세요.
 
@@ -159,13 +159,58 @@ import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe0
 
 
 
-### 
+### 한글 입력 문제
+
+os 안에서 한글 입력 문제를 fcitx로 해결해 준후, sublime 에서 한글을 입력하고 하니 되질 안는다.
+
+걱정 할것 없다.
+
+뜻이 있는곳에 길이 있나니...
+
+구글링이 있는곳에 해답이 있었다. 나니?!!
+
+아주 고마우신 분들이 이미 솔루션을 만들어 놨다.
+
+[https://github.com/lyfeyaj/sublime-text-imfix](https://github.com/lyfeyaj/sublime-text-imfix)
+
+```shell
+$ git clone https://github.com/lyfeyaj/sublime-text-imfix
+$ cd sublime-text-imfix
+$ ./sublime-imfix
+$ sudo reboot
+```
 
 
+
+### 유용한 패키지 목록
+
+Autocomplete
+
+BracketHighlighter
+
+GitGutter
+
+SideBarEnhancements
+
+SublimeLinter
+
+
+
+### Theme
 
 [Material Theme](https://packagecontrol.io/packages/Material%20Theme)
 
 
+
+### Reindent
+
+> Preferences -> Key Bindings -> User
+
+```c
+// 다음 내용을 추가해 준다.
+// 단축키는 본인이 원하는거 아무거나 넣어 주면된다.
+{ "keys": ["ctrl+shift+r"], "command": "reindent"}
+```
 
 
 
@@ -294,6 +339,30 @@ $ sudo rm /etc/apt/sources.list.d/google-chrome.list
 설치 후에 런처에 크롬이 보이지 않는다고 떨면 안된다.
 
 침착하게 Super+A를 눌러보자 크롬이 보일것이다.
+
+
+
+## Autojump
+
+오토점프는 터민널 상에서 Fast directory change를 가능하게 해준다.
+
+[https://github.com/wting/autojump](https://github.com/wting/autojump)
+
+```shell
+$ git clone https://github.com/wting/autojump
+$ cd autojump
+$ ./install.sh
+...
+Please manually add the following line(s) to ~/.bashrc:
+#밑의 내용을 .bashrc에 추가해 주면된다.
+	[[ -s /home/codex/.autojump/etc/profile.d/autojump.sh ]] && source /home/codex/.autojump/etc/profile.d/autojump.sh
+...
+$ exec "$SHELL"
+```
+
+
+
+
 
 
 
